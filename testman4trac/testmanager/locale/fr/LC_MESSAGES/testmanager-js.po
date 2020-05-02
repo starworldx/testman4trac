@@ -1,0 +1,63 @@
+# French translations for TestManager.
+# Copyright (C) 2013 Roberto Longobardi
+# This file is distributed under the same license as the TestManager
+# project.
+#
+# Translators:
+# chareyron <>, 2011
+# LauraL <l.longobardi@bluewin.ch>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Test Manager for Trac plugin\n"
+"Report-Msgid-Bugs-To: otrebor.dev@gmail.com\n"
+"POT-Creation-Date: 2017-03-04 19:18+0100\n"
+"PO-Revision-Date: 2013-08-19 13:41+0000\n"
+"Last-Translator: LauraL <l.longobardi@bluewin.ch>\n"
+"Language: fr\n"
+"Language-Team: French "
+"(http://www.transifex.com/projects/p/testman4trac/language/fr/)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: testmanager/htdocs/js/testmanager.js:28
+#: testmanager/htdocs/js/testmanager.js:43
+#: testmanager/htdocs/js/testmanager.js:60
+#, fuzzy
+msgid "You must specify a name. Minimum length is 4 characters."
+msgstr "Vous devez spécifier un nom. Longueur entre 4 et 90 caractères."
+
+#: testmanager/htdocs/js/testmanager.js:174
+msgid "Are you sure you want to remove the test case from the plan?"
+msgstr "Êtes-vous sûr de vouloir supprimer la Fiche de Test du plan?"
+
+#: testmanager/htdocs/js/testmanager.js:209
+msgid "[Insert problem summary]"
+msgstr "Insérer resumé du problème"
+
+#: testmanager/htdocs/js/testmanager.js:221
+msgid ""
+"Are you sure you want to duplicate the test catalog and all its contained"
+" test cases?"
+msgstr ""
+"Êtes-vous sûr de vouloir dupliquer le Catalogue de Tests et toutes les "
+"Fiches de Test qu'il contient ?"
+
+#: testmanager/htdocs/js/testmanager.js:228
+msgid ""
+"Are you sure you want to delete the test plan and the state of all its "
+"contained test cases?"
+msgstr ""
+"Êtes-vous sûr de vouloir supprimer le Plan de Tests et l'état de toutes "
+"les Fiches de test qu'il contient ?"
+
+#: testmanager/htdocs/js/testmanager.js:489
+#: testmanager/htdocs/js/testmanager.js:644
+msgid "Results: "
+msgstr "Résultats :"
+
+#~ msgid "Length between 4 and 90 characters."
+#~ msgstr "Longueur entre 4 et 90 caractères."
+

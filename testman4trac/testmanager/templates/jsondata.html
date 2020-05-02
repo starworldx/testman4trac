@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>  
+<xmldataset xmlns:py="http://genshi.edgewall.org/">
+	<py:for each="t in testcase_data">
+		<ChartData>
+			<date>${t['date']}</date>
+			<new_tcs>${t['new_tcs']}</new_tcs>
+			<successful>${t['successful']}</successful>
+			<failed>${t['failed']}</failed>
+			<all_tcs>${t['all_tcs']}</all_tcs>
+			<all_successful>${t['all_successful']}</all_successful>
+			<all_untested>${t['all_untested']}</all_untested>
+			<all_failed>${t['all_failed']}</all_failed>
+		</ChartData>
+	</py:for>
+</xmldataset>

@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//testmanager/__init__.py=utf-8
+encoding//testmanager/admin.py=utf-8
+encoding//testmanager/api.py=utf-8
+encoding//testmanager/model.py=utf-8
+encoding//testmanager/rpcsupport.py=utf-8
+encoding//testmanager/stats.py=utf-8
+encoding//testmanager/upgrades/__init__.py=utf-8
+encoding//testmanager/upgrades/db_testcase_2.py=utf-8
+encoding//testmanager/upgrades/db_testcaseinplan_2.py=utf-8
+encoding//testmanager/upgrades/db_testplan_2.py=utf-8
+encoding//testmanager/util.py=utf-8
+encoding//testmanager/web_ui.py=utf-8
+encoding//testmanager/wiki.py=utf-8
+encoding//testmanager/workflow.py=utf-8
+encoding/setup.py=utf-8

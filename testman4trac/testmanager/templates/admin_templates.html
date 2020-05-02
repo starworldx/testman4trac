@@ -1,0 +1,188 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      xmlns:py="http://genshi.edgewall.org/"
+      i18n:domain="testmanager"
+	  >
+
+<xi:include href="admin.html" />
+
+<head>
+  <title>Test Manager Templates</title>
+</head>
+<body>
+
+  <!-- show template overview -->
+
+  <div id="template_overview" py:if="template_overview">
+    <h2>Test Manager Templates Configuration</h2>
+
+    <fieldset>
+      <legend>Test Catalog Templates</legend>
+      <div id="tcat_table" py:if="not len(tcat_templates)">No Templates created yet.</div>
+      <form id="tcat_table" method="post" py:if="len(tcat_templates)">
+        <table class="listing">
+          <thead>
+            <tr>
+              <th class="sel">&nbsp;</th><th>Name</th><th>Description</th>
+			</tr>
+          </thead>
+          <tbody>
+            <tr py:for="tcat_template in tcat_templates">
+			  <td class="sel"><input type="checkbox" name="tcat_sel" value="$tcat_template.id" /></td>
+			  <td class="name"><a href="${panel_href(tcat_template.id)}">$tcat_template.name</a></td>
+			  <td class="description">${tcat_template.description}</td>
+			</tr>
+          </tbody>
+        </table>
+	<div class="buttons">
+      <input type="submit" name="tcat_del" value="${_('Delete Selected')}" />
+	</div>
+      </form>
+      <br />
+      <form id="tcat_add" method="post">
+        <input type="text" name="tcat_add_name" value="$tcat_add_name" size="40" />
+        <input type="submit" name="tcat_add" value="${_('Add Test Catalog Template')}" />
+      </form>
+    </fieldset>
+    <br />
+    <fieldset>
+      <legend>Test Case Templates</legend>
+      <div id="tc_table" py:if="not len(tc_templates)">
+        No Templates created yet.
+      </div>
+      <form id="tc_table" method="post" py:if="len(tc_templates)">
+        <table class="listing">
+          <thead>
+            <tr>
+              <th class="sel">&nbsp;</th><th>Name</th><th>Description</th>
+			</tr>
+          </thead>
+          <tbody>
+            <tr py:for="tc_template in tc_templates">
+			  <td class="sel"><input type="checkbox" name="tc_sel" value="$tc_template.id" /></td>
+			  <td class="name"><a href="${panel_href(tc_template.id)}">$tc_template.name</a></td>
+			  <td class="description">${tc_template.description}</td>
+			</tr>
+		  </tbody>
+		</table>
+		<div class="buttons">
+          <input type="submit" name="tc_del" value="${_('Delete Selected')}" />
+		</div>
+      </form>
+      <br />
+      <form id="tc_add" method="post">
+        <input type="text" name="tc_add_name" value="$tc_add_name" size="40" />
+        <input type="submit" name="tc_add" value="${_('Add Test Case Template')}" />
+      </form>
+    </fieldset>
+    <br />
+    <fieldset>
+      <legend>Default template for Test Catalog</legend>
+      <form method="post">
+		<div class="field">
+          <select size="1" name="tcat_default">
+			<option value="0">None</option>
+			<option py:for="tcat in tcat_templates" value="$tcat.id" selected="${tcat.id == tcat_selected or None}">$tcat.name</option>
+		  </select>
+		</div>
+		<div class="buttons">
+		  <input type="submit" name="tcat_default_save" value="${_('Save Default Test Catalog Template')}" />
+		</div>
+      </form>
+    </fieldset>
+    <br />
+    <fieldset>
+      <legend>Default template for Test Case</legend>
+      <form method="post">
+		<div class="field">
+          <select size="1" name="tc_default">
+			<option value="0">None</option>
+			<option py:for="tc_template in tc_templates" value="$tc_template.id" selected="${tc_template.id == tc_selected or None}">$tc_template.name</option>
+		  </select>
+		</div>
+		<div class="buttons">
+		  <input type="submit" name="tc_default_save" value="${_('Save Default Test Case Template')}" />
+		</div>
+      </form>
+    </fieldset>
+    <br />
+    <fieldset>
+      <legend>Default Test Case template for specific Test Catalogs (overrides default above)</legend>
+      <form method="post">
+        <table class="listing">
+		  <thead>
+			<tr>
+			  <th>Test Catalog ID</th><th>Test Catalog</th><th>Test Case Template</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr py:for="tcat in tcat_list">
+			  <td class="name">$tcat.id</td>
+			  <td class="name">$tcat.title</td>
+			  <td>
+				<div class="field">
+				  <select size="1" name="TC_TEMPLATE_FOR_TCAT_$tcat.id">
+					<option value="0">Default</option>
+					<option py:for="tc in tc_templates" value="$tc.id" selected="${tc.id == tcat.template or None}">$tc.name</option>
+				  </select>
+				</div>
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+        <div class="buttons">
+          <input type="submit" name="tc_templates_save" value="${_('Save Template Configuration')}" />
+        </div>
+      </form>
+    </fieldset>
+
+  </div>
+
+  <!-- edit template -->
+
+  <div id="edit_template" py:if="edit_template">
+    <h2>Edit Template</h2>
+    <form id="t_edit" method="post">
+      <table>
+        <tr>
+		  <td>Name</td>
+		  <!-- td><input type="text" name="t_edit_name" value="$t_edit_name" size="60" /></td -->
+		  <td>$t_edit_name</td>
+		</tr>
+		<tr>
+		  <td>Description</td>
+		  <td><input type="text" name="t_edit_description" value="$t_edit_description" size="60" /></td>
+		</tr>
+      </table>
+      <fieldset>
+        <legend>Content</legend>
+        <textarea class="wikitext" name="t_edit_content" rows="24" cols="80">$t_edit_content</textarea>
+      </fieldset>
+      <br />
+      <input type="hidden" name="t_edit_id" value="$t_edit_id" />
+      <input type="hidden" name="t_edit_name" value="$t_edit_name" />
+      <input type="hidden" name="t_edit_type" value="$t_edit_type" />
+      <input type="hidden" name="t_edit_action" value="$t_edit_action" />
+      <div class="buttons">
+        <input type="submit" name="t_edit_preview" value="Preview Template" />
+        <input id="save" type="submit" name="t_edit_save" value="${_('Submit Changes')}" />
+        <input type="submit" name="t_edit_cancel" value="${_('Cancel')}" />
+      </div>
+    </form>
+    <br />
+    <div py:if="t_show_preview">
+      <h2>Preview</h2>
+      <div id="preview">
+        <div class="wikipage">
+	  ${t_preview_content}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

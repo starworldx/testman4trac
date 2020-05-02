@@ -1,0 +1,51 @@
+Upgrade is supported from release 1.4.7 and above only.
+
+If you have an earlier release, upgrade to 1.4.7 first and then upgrade 
+to the latest release.
+
+The functionalities are divided in three plugins, which must be installed in 
+this order:
+
+    1) Trac Generic Class => TracGenericClass
+
+    2) Trac Generic Workflow => TracGenericWorkflow
+
+    3) Test Manager => TestManager
+
+
+An additional plugin is only useful for debugging and should not be installed 
+in a production environment.
+
+    *  SQL Executor => SQLExecutor
+
+
+Upgrade:
+
+1) Download the Python Egg file (".egg" extension) which is RIGHT FOR YOUR 
+   PYTHON VERSION, or download the source code and build it.
+   Refer to BUILD.txt for instructions on how to build.
+   
+2) Open your Trac project's home page, go to the admin panel and select 
+   "Plugins"
+
+Repeat steps 3) to 7) for each plugin, in the following order:
+     a) TracGenericClass
+     b) TracGenericWorkflow
+     c) TestManager
+
+3) Notice the "Install Plugin" section. Browse for your Egg file and click 
+   "Install".
+
+4) Restart your Trac server (e.g. Apache or tracd).
+
+5) Reload the Trac page in your browser.
+
+6) If Trac says that a database upgrade is needed, open a shell or 
+   command prompt on your Trac server machine and run the database 
+   upgrade command that will be displayed in the Trac's page.
+   
+7) Restart your Trac server (e.g. Apache or tracd).
+
+8) Clear your browser's cache - needed to get the updated Javascript
+   code.
+

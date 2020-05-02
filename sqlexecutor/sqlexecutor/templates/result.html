@@ -1,0 +1,48 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="layout.html" />
+  <xi:include href="macros.html" />
+  <head>
+
+	<style type="text/css">
+        .sql_message {
+            font-size: medium;
+            color: blue;
+        }
+	</style>
+
+  </head>
+
+  <body>
+      <p/>
+      <h1>SQL Executor</h1>
+
+      <form method="post" id="sqlexecutor_form" action="${baseurl}/sqlexec">
+        <h2>Type your SQL query here:</h2>
+<textarea cols="100" rows="10" name="sql">${sql}</textarea>
+        <br />
+        
+        <input type="submit" value="Execute" /> 
+        
+        <br /><br />
+        
+        <h2>Result:</h2>
+
+        <p class="sql_message">${message}</p>
+          
+        <table class="listing">
+          <tbody>
+            <tr py:for="row in result">
+			  <td py:for="col in row">${col}</td>
+			</tr>
+		  </tbody>
+		</table>
+        
+      </form>
+    
+  </body>
+</html>

@@ -1,0 +1,47 @@
+
+/* Table Listing */
+.listing,
+#legenda {
+    /* border: 1px solid #999; */
+    border: 1px solid #d7d7d7;
+    border-spacing: 0;
+    background-color: #fff;
+    padding: 0;
+}
+
+.listing {
+  width: 100%;
+}
+
+#dirlist a { display: inline;}
+
+.listing caption {
+    font-weight: bold;
+    text-align: left;
+}
+.listing tr {
+    text-shadow: 0 0 0 #fff;
+}
+.listing td,
+.listing th {
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+    padding: 0 9px;
+    line-height: 26px;
+    border-right: 1px dotted #ddd;
+    overflow: hidden;
+}
+
+.listing th {
+    border-right: 1px solid #fff;
+    background: #ddd url("../images/gradient.png") top repeat-x;
+    text-align: left;
+    color: #666;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.listing th a {
+        color: #666;
+}
+

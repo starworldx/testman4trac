@@ -1,0 +1,148 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      xmlns:py="http://genshi.edgewall.org/"
+      i18n:domain="testmanager"
+	  >
+  <xi:include href="layout.html" />
+  <xi:include href="macros.html" />
+  <head>
+
+	<link rel="stylesheet" type="text/css" href="chrome/testmanager/css/stats.css" />
+
+    <script type="text/javascript">
+        var jQuery_trac_old = $.noConflict(true);
+    </script>
+	
+	<link href="chrome/testmanager/css/blitzer/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css"/>
+	<script src="chrome/testmanager/js/jquery-1.9.1.js"></script>
+	<script src="chrome/testmanager/js/jquery-ui-1.10.3.custom.js"></script>
+    
+	<script language="javascript" type="text/javascript" src="chrome/testmanager/js/jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="chrome/testmanager/js/jquery.flot.pie.js"></script>
+
+    <script type="text/javascript">
+        var jQuery_testmanager = $.noConflict(true);
+		$ = jQuery_trac_old;
+		
+		var resolution = ${resolution};
+		var baseurl    = "${baseurl}";
+		var start_date = "${start_date}";
+		var end_date   = "${end_date}";
+
+	</script>
+
+    <script type="text/javascript">
+
+        (function($) {
+            $(document).ready(function() {
+                $("#start_date").datepicker();
+                $("#end_date").datepicker();
+                
+            });
+        })(jQuery_testmanager);	
+		
+    </script>
+
+	<script language="javascript" type="text/javascript" src="chrome/testmanager/js/stats.js"></script>
+    
+  </head>
+<body class="yui-skin-sam">
+
+
+<p/>
+<span class="chart_title">
+<h1>Test Management Statistics</h1>
+</span>
+
+<div>
+<form method="post" id="dt_frm" action="javascript:doRequestData()">
+	<div id="tabs">
+		<ul>
+			<li><a href="#barchartContainer"><span>Test activity trend</span></a></li>
+			<li><a href="#piechartContainer"><span>Current test status</span></a></li>
+			<li><a href="#ticketchartContainer"><span>Tickets trend</span></a></li>
+		</ul>
+
+		<div id="barchartContainer">
+			<div id="flotBarChartId"></div>
+			<div id="flotBarChartLegendId"></div>
+		</div>
+		<div id="piechartContainer">
+			<div id="flotPieChartId"></div>
+			<div id="flotPieChartEmptyId">No data available</div>
+			<div id="flotPieChartReplacementId"><p>Not applicable to "All Test Plans".</p><p>Select a Test Plan to see this chart.</p></div>
+			<div id="flotPieChartLegendId"></div>
+		</div>
+		<div id="ticketchartContainer">
+			<div id="flotTicketChartId"></div>
+			<div id="flotTicketChartLegendId"></div>
+		</div>
+	</div>
+
+	<div id="settingsContainer">
+		<fieldset id="Settings">
+		<legend>Settings</legend>
+			<span id="period_container">
+				<label for="start_date">Start Date: </label>
+				<input type="text" name="start_date" id="start_date" size="${len(date_hint)}"
+                       value="${start_date and format_date(start_date)}" readonly="${readonly}"
+                       title="${_('Format: %(datehint)s', datehint=date_hint)}"/>                
+                
+				<label for="end_date">End Date: </label>
+				<input type="text" name="end_date" id="end_date" size="${len(date_hint)}"
+                       value="${end_date and format_date(end_date)}" readonly="${readonly}"
+                       title="${_('Format: %(datehint)s', datehint=date_hint)}"/>                
+
+				<label for="resolution">Resolution: </label>
+				<select id="resolution" name="resolution">
+				  <option value="1" selected="${resolution=='1' or None}">1 Day</option>
+				  <option value="7" selected="${resolution=='7' or None}">1 Week</option>
+				  <option value="14" selected="${resolution=='14' or None}">2 Weeks</option>
+				  <option value="30" selected="${resolution=='30' or None}">1 Month</option>
+				  <option value="60" selected="${resolution=='60' or None}">2 Months</option>
+				  <option value="90" selected="${resolution=='90' or None}">3 Months</option>
+				  <option value="180" selected="${resolution=='180' or None}">6 Months</option>
+				  <option value="360" selected="${resolution=='360' or None}">1 Year</option>
+			   </select>
+			</span>
+            <div>
+                <span class="hint" i18n:msg="datehint">Format: $date_hint</span>
+            </div>
+			<label for="testplan">Test Plan: </label>
+			<select id="testplan" name="testplan">
+				<option value="__all">All Test Plans</option>
+				<py:for each="m in testplans">
+				<option value="${m['planid']}|${m['catpath']}">${m['name']}</option>
+				</py:for> 
+			</select>
+			<input id="updateChartButtonId" type="button" name="Update Chart" value="Update Chart" />
+		<p />
+		<div id="bookmark_container" class="help"><small>
+            <b>URL to bookmark:</b> <span id="static_url"></span>
+            <br />
+
+            <script type="text/javascript">
+                if (window.sidebar) {
+                    document.write('<a href="javascript:addBookmark()">Bookmark this chart</a>&nbsp;&nbsp;&nbsp;(On Firefox you\'ll need to Ctrl-click on the bookmark to then open it)'); 
+                } else if (window.opera) {
+                    if (window.print) {
+                        document.write('<a rel="sidebar" href="javascript:addBookmark()">Bookmark this chart</a>'); 
+                    }
+                }
+            </script>
+
+            <br />
+            <a id="export_excel" href="">Export this data to Excel</a>&nbsp;&nbsp;&nbsp;(CSV format)
+		</small></div>
+		</fieldset>
+	</div>
+</form>
+
+</div>
+
+  </body>
+</html>

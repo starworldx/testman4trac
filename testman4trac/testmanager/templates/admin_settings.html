@@ -1,0 +1,123 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      xmlns:py="http://genshi.edgewall.org/"
+      i18n:domain="testmanager"
+	  >
+
+<xi:include href="admin.html" />
+
+<head>
+  <title>Test Manager Settings</title>
+</head>
+<body>
+  <h2>Settings for Test Manager</h2>
+  <form method="post">
+    <fieldset>
+      <legend>Test Statistics default settings</legend>
+      <table>
+        <tr>
+		  <td>Number of days shown by default:</td>
+		  <td><input type="text" value="${default_days_back}" name="default_days_back" size="20" /></td>
+		</tr>
+		<tr>
+		  <td>Number of days between each data point:</td>
+		  <td><input type="text" value="${default_interval}" name="default_interval" size="20" /></td>
+		</tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Test Manager visualization settings</legend>
+      <table>
+		<tr>
+		  <td>Sort a test plan's test cases by:</td>
+		  <td>
+			  <select name="testplan_sortby">
+				  <option value="custom" selected="${testplan_sortby=='custom' or None}">User-specified (use "Organize Test Catalogs" to set)</option>
+				  <option value="name" selected="${testplan_sortby=='name' or None}">Name</option>
+				  <option value="modification_time" selected="${testplan_sortby=='modification_time' or None}">Modification time</option>
+			  </select>
+		  </td>
+		</tr>
+		<tr>
+		  <td>Open Test Cases in a new window:</td>
+		  <td><input type="checkbox" name="open_new_window" checked="${open_new_window=='True' or None}"/></td>
+		</tr>
+		<tr>
+		  <td>Default Test Catalog view type:</td>
+		  <td>
+			  <select name="testcatalog_default_view">
+				  <option value="tree" selected="${testcatalog_default_view=='tree' or None}">Tree</option>
+				  <option value="tree_table" selected="${testcatalog_default_view=='tree_table' or None}">Table</option>
+			  </select>
+		  </td>
+		</tr>
+		<tr>
+		  <td>Default Test Plan view type:</td>
+		  <td>
+			  <select name="testplan_default_view">
+				  <option value="tree" selected="${testplan_default_view=='tree' or None}">Tree</option>
+				  <option value="tree_table" selected="${testplan_default_view=='tree_table' or None}">Table</option>
+			  </select>
+		  </td>
+		</tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Visible Test Catalog columns in table view</legend>
+      <table>
+		<tr><th></th><th></th><th>Totals Row</th></tr>
+		<py:for each="testcatalog_column in testcatalog_columns">
+			<tr>
+				<td><input type="checkbox" name="testcatalog.${testcatalog_column['name']}" checked="${testcatalog_column['visible']=='True' or None}"/></td>
+				<td style="padding-right: 30px;">${testcatalog_column['label']}</td>
+				<td>
+					<select name="totals.testcatalog_${testcatalog_column['name']}">
+						<option value="none"></option>
+						<option value="sum" selected="${testcatalog_column['totals']=='sum' or None}">Sum</option>
+						<option value="average" selected="${testcatalog_column['totals']=='average' or None}">Average</option>
+						<option value="count" selected="${testcatalog_column['totals']=='count' or None}">Count</option>
+					</select>
+				</td>
+			</tr>
+		</py:for>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Visible Test Plan columns in table view</legend>
+      <table>
+		<tr><th></th><th></th><th>Totals Row</th></tr>
+		<py:for each="testplan_column in testplan_columns">
+			<tr>
+				<td><input type="checkbox" name="testplan.${testplan_column['name']}" checked="${testplan_column['visible']=='True' or None}"/></td>
+				<td style="padding-right: 30px;">${testplan_column['label']}</td>
+				<td>
+					<select name="totals.testplan_${testplan_column['name']}">
+						<option value="none"></option>
+						<option value="sum" selected="${testplan_column['totals']=='sum' or None}">Sum</option>
+						<option value="average" selected="${testplan_column['totals']=='average' or None}">Average</option>
+						<option value="count" selected="${testplan_column['totals']=='count' or None}">Count</option>
+					</select>
+				</td>
+			</tr>
+		</py:for>
+      </table>
+	</fieldset>
+    <!--
+    <fieldset>
+      <legend>Test-Outcomes settings</legend>
+      <br />
+      <input type="submit" name="save" value="Save" />
+    </fieldset>
+    -->
+    <br />
+    <input type="submit" name="save" value="Save" />
+  </form>
+</body>
+</html>

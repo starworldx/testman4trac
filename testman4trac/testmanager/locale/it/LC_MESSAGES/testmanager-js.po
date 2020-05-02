@@ -1,0 +1,59 @@
+# Copyright (C) 2010 Roberto Longobardi
+# This file is distributed under the same license as the TestManager
+#
+# Translators:
+# Roberto Longobardi <otrebor.dev@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: TestManager 1.3.12\n"
+"Report-Msgid-Bugs-To: otrebor.dev@gmail.com\n"
+"POT-Creation-Date: 2017-03-04 19:18+0100\n"
+"PO-Revision-Date: 2011-03-10 16:35+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it_IT <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: testmanager/htdocs/js/testmanager.js:28
+#: testmanager/htdocs/js/testmanager.js:43
+#: testmanager/htdocs/js/testmanager.js:60
+#, fuzzy
+msgid "You must specify a name. Minimum length is 4 characters."
+msgstr "Devi indicare un nome. Lunghezza da 4 a 90 caratteri."
+
+#: testmanager/htdocs/js/testmanager.js:174
+msgid "Are you sure you want to remove the test case from the plan?"
+msgstr "Sei sicuro di voler eliminare il caso di test dal piano?"
+
+#: testmanager/htdocs/js/testmanager.js:209
+msgid "[Insert problem summary]"
+msgstr "[Inserire una descrizione del problema]"
+
+#: testmanager/htdocs/js/testmanager.js:221
+msgid ""
+"Are you sure you want to duplicate the test catalog and all its contained"
+" test cases?"
+msgstr ""
+"Sei sicuro di voler duplicare il catalogo e tutti i casi di test in esso "
+"contenuti?"
+
+#: testmanager/htdocs/js/testmanager.js:228
+msgid ""
+"Are you sure you want to delete the test plan and the state of all its "
+"contained test cases?"
+msgstr ""
+"Sei sicuro di voler eliminare il piano di test e lo stato di tutti i casi"
+" di test in esso contenuti?"
+
+#: testmanager/htdocs/js/testmanager.js:489
+#: testmanager/htdocs/js/testmanager.js:644
+msgid "Results: "
+msgstr "Risultati: "
+
+#~ msgid "Length between 4 and 90 characters."
+#~ msgstr "Lunghezza da 4 a 90 caratteri."
+

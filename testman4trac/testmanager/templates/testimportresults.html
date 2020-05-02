@@ -1,0 +1,63 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      xmlns:py="http://genshi.edgewall.org/"
+      i18n:domain="testmanager"
+	  >
+  <xi:include href="layout.html" />
+  <xi:include href="macros.html" />
+  <head>
+
+	<style type="text/css">
+	</style>
+	
+  </head>
+  <body>
+	<h1>Test Case import results</h1>
+	<br />
+	Got to the <a href="wiki/${cat_name}">enclosing Test Catalog</a>.
+	<br />
+    <h2>Errors</h2>
+    <table class="listing" style="width: 75%">
+        <thead>
+            <tr>
+                <th style="width: 10%">Row number</th>
+                <th>Test Title</th>
+                <th>Error</th>
+            </tr>
+        </thead>
+        <tbody>
+            <py:for each="error in errors">
+                <tr>
+                    <td>${error[0]}</td>
+                    <td>${error[1]}</td>
+                    <td>${error[2]}</td>
+                </tr>
+            </py:for>
+        </tbody>
+    </table>
+
+	<br /><br />
+	
+    <h2>Test Cases imported successfully</h2>
+    <table class="listing" style="width: 75%">
+        <thead>
+            <tr>
+                <th>Test Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <py:for each="imported_tc in imported_ok">
+                <tr>
+                    <td>${imported_tc}</td>
+                </tr>
+            </py:for>
+        </tbody>
+    </table>
+	
+	<br /><br /><br /><br />
+  </body>
+</html>

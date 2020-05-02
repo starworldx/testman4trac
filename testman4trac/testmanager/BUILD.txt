@@ -1,0 +1,64 @@
+
+To build the four plugins that make up the application:
+
+
+  On Linux:
+
+ 1) Make sure you have Trac installed and available in the Python lookup 
+    path. Genshi should also be available in the Python lookup path.
+    To make these libraries available to Python you can either install them
+    centrally, or reference them using the PYTHONLIB environment variable.
+    
+    In order to enable languages different from English, you should also
+    have Babel installed in your Python environment.
+    
+ 2) Unzip the source code distribution package
+ 
+ 3) Open a shell, cd into the testman4trac-parent directory
+    
+ 4) Build the source code using the provided build script:
+    
+        ./build.sh [-f] [-i path/to/your/trac/project/env]
+        
+        Where:
+            -f :    fast: does not generate the message catalogs (you should build them at least on the first build run)
+            -i :    installs the built plugins into your trac environment
+ 
+    The build shell script can copy the resulting egg files into your desired 
+    destination, by specifying the "-i" option.
+
+ 5) You will find the built egg files under the directory "bin" and the 
+    documentation under "docs".
+    
+    
+  On Windows:
+
+ 1), 2), 3) Same as for Linux
+ 4) Build the source code using the provided build scripts:
+ 
+    - To build for Trac 0.12 and above:
+ 
+        build.cmd
+ 
+    The build shell script can copy the resulting egg files into your desired 
+    destination.
+    If you wish to directly install the egg files under your Trac environment, 
+    you can do that by providing your project root directory to the build.sh 
+    script:
+    
+    build.cmd path\to\your\trac\project\env
+    
+ 5) You will find the built egg files under the directory "bin" and the 
+    documentation under "docs".
+
+==============================================================================
+Use the following command to clean up the build:
+
+  On Linux:
+
+    ./clean.sh
+
+    
+  On Windows:
+    
+    clean.cmd

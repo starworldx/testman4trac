@@ -1,0 +1,61 @@
+# Russian translations for TestManager.
+# Copyright (C) 2013 Roberto Longobardi
+# This file is distributed under the same license as the TestManager
+# project.
+#
+# Translators:
+# valgussev <valgussev@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Test Manager for Trac plugin\n"
+"Report-Msgid-Bugs-To: otrebor.dev@gmail.com\n"
+"POT-Creation-Date: 2017-03-04 19:18+0100\n"
+"PO-Revision-Date: 2013-11-20 12:12+0000\n"
+"Last-Translator: valgussev <valgussev@gmail.com>\n"
+"Language: ru\n"
+"Language-Team: Russian "
+"(http://www.transifex.com/projects/p/testman4trac/language/ru/)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: testmanager/htdocs/js/testmanager.js:28
+#: testmanager/htdocs/js/testmanager.js:43
+#: testmanager/htdocs/js/testmanager.js:60
+#, fuzzy
+msgid "You must specify a name. Minimum length is 4 characters."
+msgstr "Вы должны указать имя. Допустимая длина имени от 4 до 90 символов."
+
+#: testmanager/htdocs/js/testmanager.js:174
+msgid "Are you sure you want to remove the test case from the plan?"
+msgstr "Вы уверены, что хотите удалить тест кейс из тест плана?"
+
+#: testmanager/htdocs/js/testmanager.js:209
+msgid "[Insert problem summary]"
+msgstr "[Описание бага]"
+
+#: testmanager/htdocs/js/testmanager.js:221
+msgid ""
+"Are you sure you want to duplicate the test catalog and all its contained"
+" test cases?"
+msgstr "Вы уверены, что хотите продублировать каталог с тестами и все содержимое?"
+
+#: testmanager/htdocs/js/testmanager.js:228
+msgid ""
+"Are you sure you want to delete the test plan and the state of all its "
+"contained test cases?"
+msgstr ""
+"Вы уверены, что хотите удалить тест план и текущее состояние всех тест "
+"кейсов внутри него?"
+
+#: testmanager/htdocs/js/testmanager.js:489
+#: testmanager/htdocs/js/testmanager.js:644
+msgid "Results: "
+msgstr "Результаты:"
+
+#~ msgid "Length between 4 and 90 characters."
+#~ msgstr "Допустимая длина от 4 до 90 символов."
+

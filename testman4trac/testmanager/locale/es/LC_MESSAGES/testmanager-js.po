@@ -1,0 +1,63 @@
+# Spanish translations for TestManager.
+# Copyright (C) 2012 Roberto Longobardi
+# This file is distributed under the same license as the TestManager
+# project.
+#
+# Translators:
+# crossroad <jesuchristopher@gmail.com>, 2011
+msgid ""
+msgstr ""
+"Project-Id-Version: Test Manager for Trac plugin\n"
+"Report-Msgid-Bugs-To: http://trac-hacks.org/wiki/TestManagerForTracPlugin"
+"\n"
+"POT-Creation-Date: 2017-03-04 19:18+0100\n"
+"PO-Revision-Date: 2012-08-09 20:52+0000\n"
+"Last-Translator: Roberto Longobardi <seccanj@gmail.com>\n"
+"Language: es\n"
+"Language-Team: Spanish "
+"(http://www.transifex.com/projects/p/testman4trac/language/es/)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: testmanager/htdocs/js/testmanager.js:28
+#: testmanager/htdocs/js/testmanager.js:43
+#: testmanager/htdocs/js/testmanager.js:60
+#, fuzzy
+msgid "You must specify a name. Minimum length is 4 characters."
+msgstr "Debe especificar un nombre. Longitud entre 4 y 90 caracteres."
+
+#: testmanager/htdocs/js/testmanager.js:174
+msgid "Are you sure you want to remove the test case from the plan?"
+msgstr ""
+
+#: testmanager/htdocs/js/testmanager.js:209
+msgid "[Insert problem summary]"
+msgstr ""
+
+#: testmanager/htdocs/js/testmanager.js:221
+msgid ""
+"Are you sure you want to duplicate the test catalog and all its contained"
+" test cases?"
+msgstr ""
+"¿Esta seguro que desea duplicar el catálogo y todos los casos de pruebas "
+"contenidos en él?"
+
+#: testmanager/htdocs/js/testmanager.js:228
+msgid ""
+"Are you sure you want to delete the test plan and the state of all its "
+"contained test cases?"
+msgstr ""
+"¿Esta seguro que desea eliminar el Plan de Pruebas y estados de todos los"
+" casos de pruebas contenidos en él?"
+
+#: testmanager/htdocs/js/testmanager.js:489
+#: testmanager/htdocs/js/testmanager.js:644
+msgid "Results: "
+msgstr "Resultados:"
+
+#~ msgid "Length between 4 and 90 characters."
+#~ msgstr "Longitud entre 4 y 90 caracteres."
+
